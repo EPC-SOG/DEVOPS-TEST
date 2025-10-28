@@ -1,0 +1,21 @@
+- name: update and upgrade
+  apt:
+    upgrade: true
+    update_cache: true
+
+- name: Installer Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Déployer la page HTML personnalisée
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    mode: '0644'
+
+- name: Redémarrer Nginx
+  service:
+    name: nginx
+    state: restarted
