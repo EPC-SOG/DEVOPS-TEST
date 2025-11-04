@@ -1,5 +1,5 @@
 - name: Déployer Nginx avec page personnalisée variabilisé
-  hosts: ec2instances
+  hosts: ec2instance
   become: yes
   roles:
     - nginx
